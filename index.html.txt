@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Piattaforma Etica — Home</title>
+  <style>
+    :root{
+      --green:#38a169;
+      --red:#ef4444;
+      --header:#c8e08c;
+      --box:#d0d3ff;
+      --footer:#c8e08c;
+      --text:#111;
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: "Arial", Helvetica, sans-serif;
+      color:var(--text);
+      background: #f5f5f5 url('sfondo.png') center/cover no-repeat;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    header{
+      background:var(--header);
+      padding:14px 12px;
+      text-align:center;
+      font-weight:700;
+    }
+    header a{ color:var(--text); text-decoration:none; font-size:1rem; }
+
+    .container{
+      max-width:var(--maxw);
+      margin: 30px auto;
+      padding: 0 16px;
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap: 24px;
+      align-items:start;
+    }
+
+    .hero{
+      text-align:left;
+    }
+    .hero h1{
+      font-size:3rem;
+      margin:6px 0 6px;
+      line-height:1.05;
+    }
+    .hero p.lead{
+      margin:0 0 20px;
+      font-size:1.15rem;
+      color:#222;
+    }
+
+    .menu-box{
+      background:var(--box);
+      border-radius:8px;
+      padding:18px;
+      max-width:680px;
+    }
+    .menu-box h2{ margin:0 0 8px; font-size:1.1rem; text-align:center; text-decoration:underline; }
+    .menu-box p{ line-height:1.6; margin:8px 0 14px; }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      justify-content:flex-start;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-block;
+      padding:10px 18px;
+      border-radius:24px;
+      text-decoration:none;
+      color:#fff;
+      font-weight:700;
+      box-shadow: 0 2px 0 rgba(0,0,0,0.08);
+    }
+    .btn.green{ background:var(--green); }
+    .btn.red{ background:var(--red); }
+
+    /* Sidebar logo */
+    .sidebar{
+      text-align:center;
+      padding-top:12px;
+    }
+    .sidebar img{
+      max-width:100%;
+      width:260px;
+      height:auto;
+      border-radius:6px;
+      background:#fff;
+      box-shadow:0 6px 20px rgba(0,0,0,0.06);
+    }
+
+    /* Footer */
+    footer{
+      background:var(--footer);
+      padding:12px 8px;
+      margin-top:34px;
+      text-align:center;
+      font-size:0.95rem;
+    }
+    footer a{ color:var(--text); text-decoration:underline; margin:0 8px; font-weight:600; }
+
+    /* Responsive */
+    @media (max-width:900px){
+      .container{ grid-template-columns: 1fr; }
+      .hero h1{ font-size:2.4rem; text-align:center; }
+      .hero p.lead{ text-align:center; }
+      .menu-box{ margin: 0 auto; }
+      .sidebar{ order:-1; }
+      .sidebar img{ width:200px; }
+      .actions{ justify-content:center; }
+      header a{ font-size:0.95rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="https://antonello2907.github.io/menu-piattaforma-etica/">Menù</a>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Benvenuto nella Nostra Comunità Etica</h1>
+      <p class="lead">“Inizia il tuo percorso etico con noi.”</p>
+
+      <div class="menu-box" aria-labelledby="menutitle">
+        
+        <p>
+          Piattaforma Etica — Costruire · Imparare · Donare
+        </p>
+
+        <div class="actions">
+          <!-- Sostituisci i link con i nomi file esatti delle tue pagine -->
+          <a class="btn green" href="https://antonello2907.github.io/questionario-etico/">📋 Compila il Questionario</a>
+          <a class="btn red" href="https://antonello2907.github.io/visione-valori/">🔎 Scopri la Visione</a>
+        </div>
+      </div>
+    </section>
+
+    <aside class="sidebar" aria-label="Logo">
+      <!-- Carica logo.png nella root del repo (o cambia il percorso) -->
+      <img src="immagine1.jpg" alt="Logo Piattaforma Etica">
+    </aside>
+  </main>
+
+  <footer>
+    © 2025 Piattaforma Etica |
+    <a href="https://antonello2907.github.io/contatti/">Contatti</a> |
+    <a href="https://antonello2907.github.io/privacy/">Privacy</a> |
+    <a href="https://antonello2907.github.io/cookie-policy/">Cookie</a> |
+    <a href="https://antonello2907.github.io/termini/">Termini</a>
+  </footer>
+
+</body>
+</html>
