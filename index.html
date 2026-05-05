@@ -119,62 +119,46 @@
       header a{ font-size:0.95rem; }
     }
 
-    /* Stile pulsante musica */
-    .music-btn {
-      background-color: var(--green);
-      border: none;
-      color: white;
-      padding: 6px 14px;
-      font-size: 0.8rem;
-      font-weight: bold;
-      border-radius: 30px;
-      cursor: pointer;
-      margin-left: 15px;
-      transition: 0.2s;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    /* Stile per il box musicale centrale */
+    .music-center {
+      text-align: center;
+      margin: 30px 0 20px;
+      padding: 15px;
+      background: rgba(255,255,240,0.5);
+      border-radius: 48px;
+      backdrop-filter: blur(2px);
     }
-    .music-btn:hover {
-      background-color: #2c6e3f;
-      transform: scale(0.97);
+    .music-center audio {
+      width: 280px;
+      border-radius: 40px;
+    }
+    .music-center p {
+      font-size: 0.85rem;
+      margin: 8px 0 0;
+      color: #2d4a2e;
+      font-weight: 500;
     }
   </style>
 </head>
 <body>
 
-  <!-- AUDIO E PULSANTE (CANONE DI PACHELBEL) -->
-  <audio id="canoneAudio" loop>
-    <source src="canone.mp3" type="audio/mpeg">
-    Il tuo browser non supporta l'audio.
-  </audio>
-
   <header>
     <a href="https://antonello2907.github.io/menu-piattaforma-etica/">Menù</a>
-    <button class="music-btn" id="playMusicBtn">🎵 Avvia il Canone di Pachelbel</button>
   </header>
-
-  <script>
-    // Semplice script per avviare la musica al primo click
-    const playBtn = document.getElementById('playMusicBtn');
-    const audio = document.getElementById('canoneAudio');
-
-    playBtn.addEventListener('click', function() {
-      audio.play().then(() => {
-        // Una volta partita, disabilito il pulsante (opzionale)
-        playBtn.textContent = '🎵 Canone in riproduzione';
-        playBtn.disabled = true;
-        playBtn.style.opacity = '0.6';
-        playBtn.style.cursor = 'default';
-      }).catch(error => {
-        console.log('Errore nella riproduzione:', error);
-        alert('Clicca di nuovo per avviare la musica.');
-      });
-    });
-  </script>
 
   <main class="container">
     <section class="hero">
       <h1>Benvenuto nella Nostra Comunità Etica</h1>
       <p class="lead">“Inizia il tuo percorso etico con noi.”</p>
+
+      <!-- PULSANTE AUDIO CENTRATO (CANONE DI PACHELBEL) -->
+      <div class="music-center">
+        <audio controls loop>
+          <source src="canone.mp3" type="audio/mpeg">
+          Il tuo browser non supporta l'audio.
+        </audio>
+        <p>🎵 Canone di Pachelbel — attiva il suono per un’atmosfera di raccoglimento</p>
+      </div>
 
       <div class="menu-box" aria-labelledby="menutitle">
         <p>
