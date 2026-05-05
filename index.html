@@ -118,13 +118,58 @@
       .actions{ justify-content:center; }
       header a{ font-size:0.95rem; }
     }
+
+    /* Stile pulsante musica */
+    .music-btn {
+      background-color: var(--green);
+      border: none;
+      color: white;
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-left: 15px;
+      transition: 0.2s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+    .music-btn:hover {
+      background-color: #2c6e3f;
+      transform: scale(0.97);
+    }
   </style>
 </head>
 <body>
 
+  <!-- AUDIO E PULSANTE (CANONE DI PACHELBEL) -->
+  <audio id="canoneAudio" loop>
+    <source src="canone.mp3" type="audio/mpeg">
+    Il tuo browser non supporta l'audio.
+  </audio>
+
   <header>
     <a href="https://antonello2907.github.io/menu-piattaforma-etica/">Menù</a>
+    <button class="music-btn" id="playMusicBtn">🎵 Avvia il Canone di Pachelbel</button>
   </header>
+
+  <script>
+    // Semplice script per avviare la musica al primo click
+    const playBtn = document.getElementById('playMusicBtn');
+    const audio = document.getElementById('canoneAudio');
+
+    playBtn.addEventListener('click', function() {
+      audio.play().then(() => {
+        // Una volta partita, disabilito il pulsante (opzionale)
+        playBtn.textContent = '🎵 Canone in riproduzione';
+        playBtn.disabled = true;
+        playBtn.style.opacity = '0.6';
+        playBtn.style.cursor = 'default';
+      }).catch(error => {
+        console.log('Errore nella riproduzione:', error);
+        alert('Clicca di nuovo per avviare la musica.');
+      });
+    });
+  </script>
 
   <main class="container">
     <section class="hero">
@@ -132,13 +177,11 @@
       <p class="lead">“Inizia il tuo percorso etico con noi.”</p>
 
       <div class="menu-box" aria-labelledby="menutitle">
-        
         <p>
           Piattaforma Etica — Costruire · Imparare · Donare
         </p>
 
         <div class="actions">
-          <!-- Sostituisci i link con i nomi file esatti delle tue pagine -->
           <a class="btn green" href="https://antonello2907.github.io/questionario-etico/">📋 Compila il Questionario</a>
           <a class="btn red" href="https://antonello2907.github.io/visione-valori/">🔎 Scopri la Visione</a>
         </div>
@@ -146,7 +189,6 @@
     </section>
 
     <aside class="sidebar" aria-label="Logo">
-      <!-- Carica logo.png nella root del repo (o cambia il percorso) -->
       <img src="immagine1.jpg" alt="Logo Piattaforma Etica">
     </aside>
   </main>
