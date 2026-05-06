@@ -62,6 +62,7 @@
       padding:18px;
       max-width:680px;
     }
+    .menu-box h2{ margin:0 0 8px; font-size:1.1rem; text-align:center; text-decoration:underline; }
     .menu-box p{ line-height:1.6; margin:8px 0 14px; }
 
     .actions{
@@ -82,6 +83,7 @@
     .btn.green{ background:var(--green); }
     .btn.red{ background:var(--red); }
 
+    /* Sidebar logo */
     .sidebar{
       text-align:center;
       padding-top:12px;
@@ -95,6 +97,7 @@
       box-shadow:0 6px 20px rgba(0,0,0,0.06);
     }
 
+    /* Footer */
     footer{
       background:var(--footer);
       padding:12px 8px;
@@ -104,6 +107,7 @@
     }
     footer a{ color:var(--text); text-decoration:underline; margin:0 8px; font-weight:600; }
 
+    /* Responsive */
     @media (max-width:900px){
       .container{ grid-template-columns: 1fr; }
       .hero h1{ font-size:2.4rem; text-align:center; }
@@ -113,35 +117,6 @@
       .sidebar img{ width:200px; }
       .actions{ justify-content:center; }
       header a{ font-size:0.95rem; }
-    }
-
-    /* Stile box musicale */
-    .music-center {
-      text-align: center;
-      margin: 30px 0 20px;
-      padding: 15px;
-      background: rgba(255,255,240,0.5);
-      border-radius: 48px;
-      backdrop-filter: blur(2px);
-    }
-    .music-center button {
-      background:#38a169;
-      border: none;
-      color: white;
-      font-size: 1.2rem;
-      padding: 12px 24px;
-      border-radius: 50px;
-      cursor: pointer;
-      font-weight: bold;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-    .music-center button:active {
-      transform: scale(0.98);
-    }
-    .music-center p {
-      font-size: 0.8rem;
-      margin-top: 8px;
-      color: #2d4a2e;
     }
   </style>
 </head>
@@ -156,25 +131,14 @@
       <h1>Benvenuto nella Nostra Comunità Etica</h1>
       <p class="lead">“Inizia il tuo percorso etico con noi.”</p>
 
-      <!-- PULSANTE MUSICALE DEFINITIVO (LINK SOUNDHELIX CHE FUNZiona) -->
-      <div class="music-center" id="musicContainer">
-        <audio id="canonePlayer" loop preload="auto">
-          <source src="https://audio.jukehost.co.uk/019df9eb-9bf1-73be-abb8-5ba8f0d5f24d" type="audio/mpeg">
-        </audio>
+      <div class="menu-box" aria-labelledby="menutitle">
         
-        <button id="musicButton">
-          🎵 Ascolta il Canone di Pachelbel
-        </button>
-        
-        <p id="musicStatus">Clicca sul pulsante per attivare l'atmosfera musicale</p>
-      </div>
-
-      <div class="menu-box">
         <p>
           Piattaforma Etica — Costruire · Imparare · Donare
         </p>
 
         <div class="actions">
+          <!-- Sostituisci i link con i nomi file esatti delle tue pagine -->
           <a class="btn green" href="https://antonello2907.github.io/questionario-etico/">📋 Compila il Questionario</a>
           <a class="btn red" href="https://antonello2907.github.io/visione-valori/">🔎 Scopri la Visione</a>
         </div>
@@ -182,6 +146,7 @@
     </section>
 
     <aside class="sidebar" aria-label="Logo">
+      <!-- Carica logo.png nella root del repo (o cambia il percorso) -->
       <img src="immagine1.jpg" alt="Logo Piattaforma Etica">
     </aside>
   </main>
@@ -194,37 +159,5 @@
     <a href="https://antonello2907.github.io/termini/">Termini</a>
   </footer>
 
-  <script>
-    (function() {
-      var audio = document.getElementById('canonePlayer');
-      var button = document.getElementById('musicButton');
-      var statusText = document.getElementById('musicStatus');
-      
-      if (audio) audio.load();
-      
-      if (button) {
-        button.addEventListener('click', function() {
-          if (!audio) return;
-          
-          var playPromise = audio.play();
-          
-          if (playPromise !== undefined) {
-            playPromise.then(function() {
-              button.textContent = '🎵 Canone in riproduzione...';
-              button.disabled = true;
-              button.style.opacity = '0.6';
-              button.style.cursor = 'default';
-              if (statusText) statusText.textContent = '🎶 La musica sta accompagnando la tua visita.';
-            }).catch(function(error) {
-              console.error('Errore:', error);
-              if (statusText) statusText.textContent = '❌ File audio non trovato o non supportato.';
-              button.style.background = '#ef4444';
-              button.textContent = '⚠️ File audio non trovato';
-            });
-          }
-        });
-      }
-    })();
-  </script>
 </body>
 </html>
