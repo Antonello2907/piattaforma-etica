@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Piattaforma Etica — Home</title>
+  <style>
+    :root{
+      --green:#38a169;
+      --red:#ef4444;
+      --header:#c8e08c;
+      --box:#d0d3ff;
+      --footer:#c8e08c;
+      --text:#111;
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: "Arial", Helvetica, sans-serif;
+      color:var(--text);
+      background: #f5f5f5 url('sfondo.png') center/cover no-repeat;
+      -webkit-font-smoothing:antialiased;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header con stile uguale alla pagina MENU (centrato, stesso aspetto) */
+    header{
+      background:var(--header);
+      padding:14px 12px;
+      text-align:center;
+      font-weight:700;
+      font-size: 1.2rem;
+    }
+    header a{ 
+      color:var(--text); 
+      text-decoration: underline; 
+      margin: 0 8px;
+    }
+
+    /* Contenuto principale che spinge il footer in basso */
+    .main-content {
+      flex: 1;
+    }
+
+    .container{
+      max-width:var(--maxw);
+      margin: 30px auto;
+      padding: 0 16px;
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap: 24px;
+      align-items:start;
+    }
+
+    .hero{
+      text-align:left;
+    }
+    
+    /* Riga del titolo + pulsante (come nel menù) */
+    .title-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 10px;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      margin: 0;
+      line-height: 1.2;
+    }
+    .hero p.lead{
+      margin: 10px 0 20px;
+      font-size:1.15rem;
+      color:#222;
+    }
+
+    /* Pulsante musica identico al menù */
+    .music-btn {
+      background: #38a169;
+      border: none;
+      color: white;
+      font-size: 0.9rem;
+      padding: 8px 20px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      transition: 0.1s;
+      white-space: nowrap;
+    }
+    .music-btn:active {
+      transform: scale(0.97);
+    }
+
+    .menu-box{
+      background:var(--box);
+      border-radius:8px;
+      padding:18px;
+      max-width:680px;
+    }
+    .menu-box p{ line-height:1.6; margin:8px 0 14px; }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      justify-content:flex-start;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-block;
+      padding:10px 18px;
+      border-radius:24px;
+      text-decoration:none;
+      color:#fff;
+      font-weight:700;
+      box-shadow: 0 2px 0 rgba(0,0,0,0.08);
+    }
+    .btn.green{ background:var(--green); }
+    .btn.red{ background:var(--red); }
+
+    .sidebar{
+      text-align:center;
+      padding-top:12px;
+    }
+    .sidebar img{
+      max-width:100%;
+      width:260px;
+      height:auto;
+      border-radius:6px;
+      background:#fff;
+      box-shadow:0 6px 20px rgba(0,0,0,0.06);
+    }
+
+    /* Footer in fondo, stile uguale al menù (grassetto e link) */
+    footer{
+      background:var(--footer);
+      padding:12px 8px;
+      text-align:center;
+      font-size:0.95rem;
+      margin-top: 40px;
+    }
+    footer a{ 
+      color:var(--text); 
+      text-decoration: underline; 
+      margin:0 8px; 
+      font-weight: bold;
+    }
+    footer span {
+      font-weight: bold;
+    }
+
+    @media (max-width:900px){
+      .container{ grid-template-columns: 1fr; }
+      .hero h1{ font-size:1.8rem; text-align:center; }
+      .hero p.lead{ text-align:center; }
+      .menu-box{ margin: 0 auto; }
+      .sidebar{ order:-1; }
+      .sidebar img{ width:200px; }
+      .actions{ justify-content:center; }
+      .title-bar {
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+      }
+      .music-btn {
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- AUDIO (stesso link JukeHost del Canone) -->
+  <audio id="canonePlayer" loop preload="auto">
+    <source src="https://audio.jukehost.co.uk/019df9eb-9bf1-73be-abb8-5ba8f0d5f24d" type="audio/mpeg">
+  </audio>
+
+  <!-- Header con foglia e scritta Menù centrata (stesso stile del menù) -->
+  <header>
+    <a href="https://antonello2907.github.io/menu-piattaforma-etica/">🌿 Menù</a>
+  </header>
+
+  <div class="main-content">
+    <main class="container">
+      <section class="hero">
+        <!-- Titolo e pulsante sulla stessa riga -->
+        <div class="title-bar">
+          <h1>Benvenuto nella Nostra Comunità Etica</h1>
+          <button id="musicButton" class="music-btn">🎵 Ascolta il Canone</button>
+        </div>
+        <p class="lead">“Inizia il tuo percorso etico con noi.”</p>
+
+        <div class="menu-box">
+          <p>
+            Piattaforma Etica — Costruire · Imparare · Donare
+          </p>
+
+          <div class="actions">
+            <a class="btn green" href="https://antonello2907.github.io/compila-questionario-etico/">📋 Compila il Questionario</a>
+            <a class="btn red" href="https://antonello2907.github.io/visione-valori/">🔎 Scopri la Visione</a>
+          </div>
+        </div>
+      </section>
+
+      <aside class="sidebar" aria-label="Logo">
+        <img src="immagine1.jpg" alt="Logo Piattaforma Etica">
+      </aside>
+    </main>
+  </div>
+
+  <!-- Footer in fondo alla pagina, con link in grassetto e stile uguale al menù -->
+  <footer>
+    © 2025 Piattaforma Etica
+    <span>|</span> <a href="https://antonello2907.github.io/contatti-e-supporto/">Contatti</a>
+    <span>|</span> <a href="https://antonello2907.github.io/privacy/">Privacy</a>
+    <span>|</span> <a href="https://antonello2907.github.io/cookie-policy/">Cookie</a>
+    <span>|</span> <a href="https://antonello2907.github.io/termini/">Termini</a>
+  </footer>
+
+  <script>
+    (function() {
+      var audio = document.getElementById('canonePlayer');
+      var button = document.getElementById('musicButton');
+      
+      if (audio) audio.load();
+      
+      if (button) {
+        button.addEventListener('click', function() {
+          if (!audio) return;
+          
+          var playPromise = audio.play();
+          
+          if (playPromise !== undefined) {
+            playPromise.then(function() {
+              button.textContent = '🎵 In riproduzione...';
+              button.disabled = true;
+              button.style.opacity = '0.6';
+              button.style.cursor = 'default';
+            }).catch(function(error) {
+              console.error('Errore audio:', error);
+              button.textContent = '⚠️ Errore';
+              button.style.background = '#ef4444';
+            });
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
