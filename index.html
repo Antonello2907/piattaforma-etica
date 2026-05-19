@@ -226,26 +226,32 @@
     (function() {
       var audio = document.getElementById('canonePlayer');
       var button = document.getElementById('musicButton');
-      
+      var isPlaying = false;  // variabile per tenere traccia dello stato
+
       if (audio) audio.load();
-      
+
       if (button) {
         button.addEventListener('click', function() {
           if (!audio) return;
-          
-          var playPromise = audio.play();
-          
-          if (playPromise !== undefined) {
-            playPromise.then(function() {
-              button.textContent = '🎵 In riproduzione...';
-              button.disabled = true;
-              button.style.opacity = '0.6';
-              button.style.cursor = 'default';
-            }).catch(function(error) {
-              console.error('Errore audio:', error);
-              button.textContent = '⚠️ Errore';
-              button.style.background = '#ef4444';
-            });
+
+          if (isPlaying) {
+            // Se sta suonando, metti in pausa
+            audio.pause();
+            isPlaying = false;
+            // Il testo del bottone NON cambia (rimane "🎵 Ascolta il Canone")
+          } else {
+            // Se è fermo, prova a riprodurre
+            var playPromise = audio.play();
+            if (playPromise !== undefined) {
+              playPromise.then(function() {
+                isPlaying = true;
+                // Il testo del bottone NON cambia
+              }).catch(function(error) {
+                console.error('Errore audio:', error);
+                button.textContent = '⚠️ Errore';
+                button.style.background = '#ef4444';
+              });
+            }
           }
         });
       }
